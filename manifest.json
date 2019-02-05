@@ -4,7 +4,7 @@
   "version": "2.0",
   "description": "Set up a browser with sane privacy defaults",
   "background": {
-    "scripts": ["privacy.js"]
+    "scripts": ["privacy.js", "network.js"]
   },
   "permissions": ["privacy"],
   "applications": {

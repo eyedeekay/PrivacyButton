@@ -1,7 +1,10 @@
 PrivacyButton
 =============
 
-Periodically reset your browser to sane defaults with a webextension.
+Periodically reset your browser to sane defaults with a webextension. This
+plugin is **barely started** in fact it's basically **exploratory** at this
+point. If it's impossible to accomplish the task with a WebExtension then
+other approaches should be evaluated.
 
 Features
 --------
