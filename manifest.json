@@ -1,16 +1,31 @@
 {
-  "manifest_version": 2,
-  "name": "PrivacyButton",
-  "version": "2.0",
-  "description": "Set up a browser with sane privacy defaults",
-  "background": {
-    "scripts": ["privacy.js", "network.js"]
-  },
-  "permissions": ["privacy"],
   "applications": {
     "gecko": {
       "id": "privacybutton@eyedeekay.github.io",
       "strict_min_version": "60.0"
     }
-  }
+  },
+  "manifest_version": 2,
+  "name": "PrivacyButton",
+  "version": "2.0",
+  "description": "Set up a browser with sane privacy defaults",
+  "background": {
+    "scripts": ["background.js", "cookies.js", "network.js", "passwords.js", "websites.js"]
+  },
+  "icons": {
+    "48": "icons/trash.svg"
+  },
+  "browser_action": {
+    "default_icon": "icons/trash.svg",
+    "default_title": "Reset Browser"
+  },
+  "options_ui": {
+    "page": "options/options.html"
+  },
+  "permissions": [
+    "privacy",
+    "browsingData",
+    "notifications",
+    "storage"
+  ]
 }
