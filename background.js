@@ -1,7 +1,7 @@
 
 var defaultSettings = {
   since: "forever",
-  dataTypes: ["history", "downloads"]
+  dataTypes: ["history", "downloads", "cache", "passwords", "formData", "serviceWorkers"]
 };
 
 function onError(e) {
