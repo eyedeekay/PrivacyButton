@@ -8,27 +8,16 @@
 
   <body>
 
-    <section class="clear-options">
-      <span class="title">Time range to forget:</span>
-      <select id="since">
-        <option value="hour" selected>Last hour</option> 
-        <option value="day">Last day</option>
-        <option value="week">Last week</option>
-        <option value="forever">Forever</option>
-      </select>
-    </section>
-
     <section class="clear-options data-types">
-      <div class="title" >Type of data to forget:</div>
 
-      <label>Downloads<input type="checkbox" checked="true" data-type="downloads"/></label>
-      <label>Cache<input type="checkbox" checked="true" data-type="cache"/></label>
-      <label>Passwords<input type="checkbox" data-type="passwords"/></label>
-      <label>History<input type="checkbox" checked="true" data-type="history"/></label>
-      <label>Plugin data<input type="checkbox" data-type="pluginData"/></label>
-      <label>Form data<input type="checkbox" data-type="formData"/></label>
-      <label>Cookies<input type="checkbox" data-type="cookies"/></label>
-      <label>Service workers<input type="checkbox" data-type="serviceWorkers"/></label>
+        <div class="title" >Enable or Disable Browser Features:</div>
+
+        <label>Enable Saved Passwords<input type="checkbox" data-type="savedpasswords"/></label>
+        <br>
+        <label>Enable Proxied, TCP-only WebRTC<input type="checkbox" data-type="webrtcp"/></label>
+        <br>
+        <label>Enable Third-Party Cookies<input type="checkbox" data-type="cookies3rdparty"/></label>
+        <br>
 
     </section>
 

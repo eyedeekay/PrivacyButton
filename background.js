@@ -1,7 +1,12 @@
 
 var defaultSettings = {
   since: "forever",
-  dataTypes: ["history", "downloads", "cache", "passwords", "formData", "serviceWorkers"]
+  dataTypes: ["history", "downloads", "cache", "cookies", "passwords", "pluginData", "formData", "serviceWorkers"]
+};
+
+var appSettings = {
+  since: "forever",
+  dataTypes: [""]
 };
 
 function onError(e) {
@@ -9,7 +14,7 @@ function onError(e) {
 }
 
 function checkStoredSettings(storedSettings) {
-  browser.storage.local.set(defaultSettings);
+  browser.storage.local.set(appSettings);
 }
 
 const gettingStoredSettings = browser.storage.local.get();
@@ -40,8 +45,8 @@ function forget(storedSettings) {
     return dataTypes;
   }
 
-  const since = getSince(storedSettings.since);
-  const dataTypes = getTypes(storedSettings.dataTypes);
+  const since = getSince(defaultSettings.since);
+  const dataTypes = getTypes(defaultSettings.dataTypes);
 
   function notify() {
     let dataTypesString = Object.keys(dataTypes).join(", ");

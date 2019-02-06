@@ -1,12 +1,26 @@
+function EnablePeerConnection(){
+    browser.privacy.network.peerConnectionEnabled.set({value: true});
+    browser.privacy.network.networkPredictionEnabled.set({value: false});
+    browser.privacy.network.webRTCIPHandlingPolicy.set({value: "disable_non_proxied_udp"});
+    console.log("Enabled WebRTC")
+}
+
+function EnableSavePasswords(){
+    browser.privacy.services.passwordSavingEnabled.set({value: true});
+    console.log("Enabled saved passwords")
+}
+
+function EnableCookieConfiguration(){
+    //browser.privacy.websites.cookieConfig.behavior.set({value: "reject_third_party"});
+    //browser.privacy.websites.cookieConfig.nonPersistentCookies.set({value: true});
+    //browser.privacy.websites.thirdPartyCookiesAllowed.set({value: false});
+    console.log("Re-disabled third-party cookies")
+}
+
 /*
 Store the currently selected settings using browser.storage.local.
 */
 function storeSettings() {
-
-  function getSince() {
-    const since = document.querySelector("#since");
-    return since.value;
-  }
 
   function getTypes() {
     let dataTypes = [];
@@ -14,15 +28,22 @@ function storeSettings() {
     for (let item of checkboxes) {
       if (item.checked) {
         dataTypes.push(item.getAttribute("data-type"));
+        if (item.getAttribute("data-type") == "savedpasswords") {
+            EnableSavePasswords()
+        }
+        if (item.getAttribute("data-type") == "webrtcp") {
+            EnablePeerConnection()
+        }
+        if (item.getAttribute("data-type") == "cookies3rdparty") {
+            EnableCookieConfiguration()
+        }
       }
     }
     return dataTypes;
   }
 
-  const since = getSince();
   const dataTypes = getTypes();
   browser.storage.local.set({
-    since,
     dataTypes
   });
 }
